@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:payflow/app/themes/app_colors.dart';
 import 'package:payflow/app/themes/app_images.dart';
 import 'package:payflow/app/themes/app_text_styles.dart';
+import 'package:payflow/app/widgets/social_login/social_login_button.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
@@ -50,6 +51,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     textAlign: TextAlign.center,
                     style: TextStyles.titleHome,
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 40, right: 40, top: 40),
+                  child: SocialLoginButton(onTap: () {
+                    
+                  }),
                 ),
               ],
             ),
