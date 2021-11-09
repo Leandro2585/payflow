@@ -31,10 +31,8 @@ The PayFlow project was developed during the Next Level Week Together at Rockets
 ---
 
 ## 🛠 Technologies
-
-#### [](https://github.com/Leandro2585/payflow)**PayFlow**  ([Flutter](https://flutter.dev/)
-
 -   **[Flutter](https://flutter.dev/)**
+-   **[Dart](https://dart.dev/)**
 ---
 
 
