@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/app/themes/app_colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:payflow/app/themes/index.dart';
 
 class TextStyles {
   static final titleHome = GoogleFonts.lexendDeca(

@@ -1,2 +1,2 @@
-export './login/login_screen.dart';
-export './home/splash_screen.dart';
+export './login/index.dart';
+export './home/index.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:payflow/app/modules/login/login_controller.dart';
+import 'package:payflow/app/modules/index.dart';
 import 'package:payflow/app/themes/index.dart';
 import 'package:payflow/app/widgets/index.dart';
 
@@ -55,7 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 40, right: 40, top: 40),
-                  child: SocialLoginButton(onTap: controller.googleAuth),
+                  child: SocialLoginButton(onTap: () {
+                    controller.googleAuth(context);
+                  }),
                 ),
               ],
             ),
