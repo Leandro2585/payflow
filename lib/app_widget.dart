@@ -7,12 +7,16 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'PayFlow',
-        theme: ThemeData(primaryColor: AppColors.primary),
+        theme: ThemeData(
+          primarySwatch: Colors.orange,
+          primaryColor: AppColors.primary,
+        ),
         initialRoute: '/splash',
         routes: {
           '/splash': (context) => SplashScreen(),
           '/home': (context) => HomeScreen(),
-          '/login': (context) => LoginScreen()
+          '/login': (context) => LoginScreen(),
+          '/barcode_scanner': (context) => BarCodeScannerScreen(),
         });
   }
 }

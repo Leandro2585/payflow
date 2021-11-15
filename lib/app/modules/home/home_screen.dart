@@ -66,7 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
               color: AppColors.primary,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/barcode_scanner');
+              },
               child: Container(
                 width: 50,
                 height: 50,

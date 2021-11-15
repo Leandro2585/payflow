@@ -4,9 +4,10 @@ import 'package:payflow/app/themes/app_colors.dart';
 import 'package:payflow/app/themes/app_images.dart';
 import 'package:payflow/app/themes/app_text_styles.dart';
 
-class SocialLoginButton extends StatelessWidget {
+class SocialLoginButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
-  const SocialLoginButton({Key? key, required this.onTap}) : super(key: key);
+  const SocialLoginButtonWidget({Key? key, required this.onTap})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
