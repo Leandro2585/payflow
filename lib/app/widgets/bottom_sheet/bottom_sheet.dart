@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:payflow/app/themes/app_colors.dart';
+import 'package:payflow/app/themes/index.dart';
 import 'package:payflow/app/widgets/index.dart';
 
 class BottomSheetWidget extends StatelessWidget {
@@ -30,13 +31,29 @@ class BottomSheetWidget extends StatelessWidget {
             Expanded(child: Container(color: Colors.black.withOpacity(0.6))),
             Column(
               children: [
-                Text(title),
-                Text(subtitle),
+                Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Text.rich(
+                    TextSpan(
+                      text: title,
+                      style: TextStyles.buttonBoldHeading,
+                      children: [
+                        TextSpan(
+                          text: '\n$subtitle',
+                          style: TextStyles.buttonHeading,
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                Container(height: 1, color: AppColors.stroke),
                 SetLabelButtonsWidget(
                   primaryLabel: primaryLabel,
                   primaryOnPressed: primaryOnPressed,
                   secondaryLabel: secondaryLabel,
                   secondaryOnPressed: secondaryOnPressed,
+                  enablePrimaryColor: true,
                 ),
               ],
             ),

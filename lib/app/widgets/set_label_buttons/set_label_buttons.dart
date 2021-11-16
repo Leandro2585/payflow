@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:payflow/app/themes/index.dart';
 import 'package:payflow/app/widgets/index.dart';
 
 class SetLabelButtonsWidget extends StatelessWidget {
@@ -6,13 +7,16 @@ class SetLabelButtonsWidget extends StatelessWidget {
   final VoidCallback primaryOnPressed;
   final String secondaryLabel;
   final VoidCallback secondaryOnPressed;
-  const SetLabelButtonsWidget({
-    Key? key,
-    required this.primaryLabel,
-    required this.primaryOnPressed,
-    required this.secondaryLabel,
-    required this.secondaryOnPressed,
-  }) : super(key: key);
+  final bool enablePrimaryColor;
+
+  const SetLabelButtonsWidget(
+      {Key? key,
+      required this.primaryLabel,
+      required this.primaryOnPressed,
+      required this.secondaryLabel,
+      required this.secondaryOnPressed,
+      this.enablePrimaryColor = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +28,7 @@ class SetLabelButtonsWidget extends StatelessWidget {
             child: LabelButtonWidget(
               label: primaryLabel,
               onPressed: primaryOnPressed,
+              style: enablePrimaryColor ? TextStyles.buttonPrimary : null,
             ),
           ),
           DividerVerticalWidget(),
