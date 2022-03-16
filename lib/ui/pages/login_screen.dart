@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:payflow/ui/components/index.dart';
 import 'package:payflow/ui/widgets/index.dart';
+import 'package:payflow/ui/components/index.dart';
+import 'package:payflow/application/controllers/index.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}): super(key: key);
@@ -11,6 +11,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final authController = AuthenticateController();
+
   @override
   Widget build(BuildContext context) {
     final size =  MediaQuery.of(context).size;
@@ -53,20 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(left: 40, right: 40, top: 40),
                     child: SocialLoginButton(
-                      onTap: () async {
-                        GoogleSignIn _googleSignIn = GoogleSignIn(
-                          scopes: [
-                            'email',
-                            'https://www.googleapis.com/auth/contacts.readonly'
-                          ]
-                        );
-                        try {
-                          final authResponse = await _googleSignIn.signIn();
-                          print(authResponse);
-                        } catch (error) {
-                          print(error);
-                        }
-                      },
+                      onTap: () {
+                        authController.googleSignIn(context);
+                      }
                     ),  
                   )
                 ],
