@@ -13,7 +13,7 @@ class AppWidget extends StatelessWidget {
       theme: ThemeData(
         primaryColor: AppColors.primary,
       ),
-      home: const SplashScreen(),
+      home: const LoginScreen(),
     );
   }
 }

@@ -2,13 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:payflow/ui/components/index.dart';
 
 class SocialLoginButton extends StatelessWidget {
-  const SocialLoginButton({Key? key}): super(key: key);
+  final VoidCallback onTap;
+  const SocialLoginButton({Key? key, required this.onTap}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      Image.asset(AppImages.google),
-      Text("Entrar com Google", style: TextStyles.buttonGray)
-    ]);
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+      height: 56,
+      decoration: BoxDecoration(
+        color: AppColors.shape, 
+        borderRadius: BorderRadius.circular(5),
+        border: const Border.fromBorderSide(BorderSide(color: AppColors.stroke)),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            flex: 1,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(AppImages.google, width: 50),
+                Container(height: 56, width: 1, color: AppColors.stroke)
+              ],
+            ),
+          ),
+          Expanded(
+            flex: 4, 
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [Text("Entrar com Google", style: TextStyles.buttonGray)],
+            ),
+          ),
+          Expanded(child: Container())
+          ],
+        ),
+      ),
+    );
   }
 }
