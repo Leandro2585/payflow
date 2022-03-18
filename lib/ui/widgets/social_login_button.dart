@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:payflow/ui/components/index.dart';
+import 'package:payflow/ui/styles/index.dart';
 
 class SocialLoginButton extends StatelessWidget {
   final VoidCallback onTap;

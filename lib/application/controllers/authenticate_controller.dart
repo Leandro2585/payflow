@@ -11,7 +11,6 @@ class AuthenticateController {
       final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
       final authResponse = await _googleSignIn.signIn();
       final user = UserModel(name: authResponse!.displayName!, avatar: authResponse.photoUrl);
-
       authService.setUser(context, user);
       print(authResponse);
     } catch (error) {

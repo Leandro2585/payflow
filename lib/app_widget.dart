@@ -1,6 +1,5 @@
-
 import 'package:flutter/material.dart';
-import 'package:payflow/ui/components/index.dart';
+import 'package:payflow/ui/styles/index.dart';
 import 'package:payflow/ui/pages/index.dart';
 
 class AppWidget extends StatelessWidget {
@@ -9,14 +8,17 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pay Flow',
-      theme: ThemeData(primaryColor: AppColors.primary),
-      initialRoute: '/splash',
-      routes: {
-        '/home': (context) => const HomeScreen(),
-        '/login': (context) => const LoginScreen(),
-        '/splash': (context) => const SplashScreen()
-      }
-    );
+        title: 'Pay Flow',
+        theme: ThemeData(
+          primarySwatch: Colors.orange,
+          primaryColor: AppColors.primary,
+        ),
+        initialRoute: '/splash',
+        routes: {
+          '/home': (context) => const HomeScreen(),
+          '/login': (context) => const LoginScreen(),
+          '/splash': (context) => const SplashScreen(),
+          '/barcode_scanner': (context) => const BarcodeScannerScreen()
+        });
   }
 }

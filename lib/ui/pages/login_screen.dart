@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:payflow/ui/widgets/index.dart';
-import 'package:payflow/ui/components/index.dart';
+import 'package:payflow/ui/styles/index.dart';
 import 'package:payflow/application/controllers/index.dart';
 
 class LoginScreen extends StatefulWidget {
