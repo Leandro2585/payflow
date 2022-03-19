@@ -53,11 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.home, color: AppColors.primary)),
+              onPressed: () {},
+              icon: const Icon(Icons.home, color: AppColors.primary),
+            ),
             GestureDetector(
-              onTap: () {
-                Navigator.pushReplacementNamed(context, '/barcode_scanner');
+              onTap: () async {
+                await Navigator.pushNamed(context, '/barcode_scanner');
+                setState(() {});
               },
               child: Container(
                 width: 56,
