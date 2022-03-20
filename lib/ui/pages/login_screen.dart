@@ -46,9 +46,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 70, right: 70, top: 30),
-                    child: Text("Organize seus boletos em um só lugar",
-                        textAlign: TextAlign.center,
-                        style: TextStyles.titleHome),
+                    child: Text(
+                      'Organize seus boletos em um só lugar',
+                      textAlign: TextAlign.center,
+                      style: TextStyles.titleHome,
+                    ),
                   ),
                   Padding(
                     padding:

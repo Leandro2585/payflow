@@ -68,12 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: AppColors.primary,
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.add_box_outlined,
-                    color: AppColors.shape,
-                  ),
+                child: const Icon(
+                  Icons.add_box_outlined,
+                  color: AppColors.shape,
                 ),
               ),
             ),
