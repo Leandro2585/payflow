@@ -13,9 +13,8 @@ class AuthenticateController {
       final user = UserModel(
           name: authResponse!.displayName!, avatar: authResponse.photoUrl);
       authService.setUser(context, user);
-      print(authResponse);
-    } catch (error) {
-      print(error);
+    } catch (e) {
+      print(e.toString());
     }
   }
 

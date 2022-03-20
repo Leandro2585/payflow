@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/ui/styles/app_colors.dart';
 import 'package:payflow/ui/styles/app_text_styles.dart';
 import 'package:payflow/ui/widgets/index.dart';
 
@@ -15,12 +16,13 @@ class SeveralLabelButtons extends StatelessWidget {
     required this.primaryHandle,
     required this.secondaryLabel,
     required this.secondaryHandle,
-    this.enablePrimaryColor = false,
+    this.enablePrimaryColor = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
+      color: AppColors.shape,
       height: 56,
       child: Row(
         children: [

@@ -115,4 +115,12 @@ class ReadBarcodeController {
       print('ERRO DE LEITURA $e');
     }
   }
+
+  void dispose() {
+    statusNotifier.dispose();
+    barcodeScanner.close();
+    if (status.showCamera) {
+      status.cameraController!.dispose();
+    }
+  }
 }

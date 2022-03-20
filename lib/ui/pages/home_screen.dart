@@ -49,40 +49,37 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: SizedBox(
         height: 90,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.home, color: AppColors.primary),
-            ),
-            GestureDetector(
-              onTap: () async {
-                await Navigator.pushNamed(context, '/barcode_scanner');
-                setState(() {});
-              },
-              child: Container(
-                width: 56,
-                height: 56,
-                decoration: BoxDecoration(
-                  color: AppColors.primary,
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: const Icon(
-                  Icons.add_box_outlined,
-                  color: AppColors.shape,
-                ),
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.home, color: AppColors.primary),
+          ),
+          GestureDetector(
+            onTap: () async {
+              await Navigator.pushNamed(context, '/barcode_scanner');
+              setState(() {});
+            },
+            child: Container(
+              width: 56,
+              height: 56,
+              decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(5),
+              ),
+              child: const Icon(
+                Icons.add_box_outlined,
+                color: AppColors.shape,
               ),
             ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.description_outlined,
-                color: AppColors.body,
-              ),
+          ),
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.description_outlined,
+              color: AppColors.body,
             ),
-          ],
-        ),
+          ),
+        ]),
       ),
     );
   }
