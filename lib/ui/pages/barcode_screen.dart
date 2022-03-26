@@ -43,12 +43,14 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
                 subtitle:
                     'Tente escanear novamente ou digite o código do seu boleto',
                 primaryLabel: 'Escanear novamente',
-                primaryHandle: readBarcodeController.getAvailableCameras,
+                primaryHandle: readBarcodeController.scanWithCamera,
                 secondaryLabel: 'Digitar código',
                 secondaryHandle: () {},
               );
             } else if (status.showCamera) {
-              return Container(child: status.cameraController!.buildPreview());
+              return Container(
+                child: readBarcodeController.cameraController!.buildPreview(),
+              );
             } else {
               return Container();
             }
@@ -83,7 +85,9 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
             ),
             bottomNavigationBar: SeveralLabelButtons(
               primaryLabel: 'Inserir código do boleto',
-              primaryHandle: () {},
+              primaryHandle: () {
+                Navigator.pushReplacementNamed(context, '/insert_ticket');
+              },
               secondaryLabel: 'Adicionar da galeria',
               secondaryHandle: () {},
             ),
