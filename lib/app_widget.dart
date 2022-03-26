@@ -24,7 +24,8 @@ class AppWidget extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/login': (context) => const LoginScreen(),
         '/splash': (context) => const SplashScreen(),
-        '/barcode_scanner': (context) => const BarcodeScannerScreen()
+        '/barcode_scanner': (context) => const BarcodeScannerScreen(),
+        '/create_ticket': (context) => const CreateTicketScreen()
       },
     );
   }

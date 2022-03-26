@@ -17,6 +17,11 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
   @override
   void initState() {
     readBarcodeController.getAvailableCameras();
+    readBarcodeController.statusNotifier.addListener(() {
+      if (readBarcodeController.status.hasBarcode) {
+        Navigator.pushReplacementNamed(context, '/create_ticket');
+      }
+    });
     super.initState();
   }
 
@@ -86,7 +91,7 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
             bottomNavigationBar: SeveralLabelButtons(
               primaryLabel: 'Inserir código do boleto',
               primaryHandle: () {
-                Navigator.pushReplacementNamed(context, '/insert_ticket');
+                Navigator.pushReplacementNamed(context, '/create_ticket');
               },
               secondaryLabel: 'Adicionar da galeria',
               secondaryHandle: () {},
