@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payflow/application/controllers/index.dart';
 import 'package:payflow/data/models/index.dart';
+import 'package:payflow/ui/pages/my_tickets_screen.dart';
 import 'package:payflow/ui/styles/index.dart';
 import 'package:payflow/ui/widgets/index.dart';
 
@@ -14,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final homeController = HomeController();
   final pages = [
+    const MyTicketsScreen(),
     Container(color: Colors.red, child: TicketTileWidget(data: TicketModel())),
   ];
 

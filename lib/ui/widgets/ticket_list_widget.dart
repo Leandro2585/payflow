@@ -4,21 +4,23 @@ import 'package:payflow/data/models/index.dart';
 import 'package:payflow/ui/widgets/index.dart';
 
 class TicketListWidget extends StatefulWidget {
-  const TicketListWidget({Key? key}) : super(key: key);
+  TicketListController ticketListController = TicketListController();
+  TicketListWidget({
+    Key? key,
+    required this.ticketListController,
+  }) : super(key: key);
 
   @override
   _TicketListWidgetState createState() => _TicketListWidgetState();
 }
 
 class _TicketListWidgetState extends State<TicketListWidget> {
-  final ticketListController = TicketListController();
-
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<List<TicketModel>>(
-      valueListenable: ticketListController.ticketsNotifier,
+      valueListenable: widget.ticketListController.ticketsNotifier,
       builder: (_, tickets, __) => Column(
-        children: ticketListController.tickets
+        children: widget.ticketListController.tickets
             .map((e) => TicketTileWidget(data: e))
             .toList(),
       ),
