@@ -7,4 +7,7 @@ class CreateTicketController {
     final form = formKey.currentState;
     if (form!.validate()) {}
   }
+
+  void onChange(
+      {String? description, String? dueDate, double? value, String? barcode}) {}
 }

@@ -64,14 +64,18 @@ class _CreateTicketScreenState extends State<CreateTicketScreen> {
                       label: 'Descrição do boleto',
                       icon: Icons.description_outlined,
                       validator: validator.validateDescription,
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        controller.onChange(description: value);
+                      },
                     ),
                     InputText(
                       label: 'Vencimento',
                       controller: dueDateInputTextController,
                       icon: FontAwesomeIcons.timesCircle,
                       validator: validator.validateDueDate,
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        controller.onChange(dueDate: value);
+                      },
                     ),
                     InputText(
                       label: 'Valor',
@@ -79,14 +83,19 @@ class _CreateTicketScreenState extends State<CreateTicketScreen> {
                       icon: FontAwesomeIcons.wallet,
                       validator: (_) => validator
                           .validatePrice(moneyInputTextController.numberValue),
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        controller.onChange(
+                            value: moneyInputTextController.numberValue);
+                      },
                     ),
                     InputText(
                       label: 'Código do boleto',
                       controller: barcodeInputTextController,
                       icon: FontAwesomeIcons.barcode,
                       validator: validator.validateBarcode,
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        controller.onChange(barcode: value);
+                      },
                     ),
                   ],
                 ),
