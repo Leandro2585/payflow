@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:payflow/application/controllers/index.dart';
-import 'package:payflow/ui/pages/index.dart';
+import 'package:payflow/data/models/index.dart';
 import 'package:payflow/ui/styles/index.dart';
+import 'package:payflow/ui/pages/index.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  final UserModel user;
+  const HomeScreen({Key? key, required this.user}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -13,8 +15,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final homeController = HomeController();
   final pages = [
-    const MyTicketsScreen(),
-    const ExtractScreen(),
+    MyTicketsScreen(key: UniqueKey()),
+    ExtractScreen(key: UniqueKey()),
   ];
 
   @override
@@ -33,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   style: TextStyles.titleRegular,
                   children: [
                     TextSpan(
-                      text: 'Leandro',
+                      text: widget.user.name,
                       style: TextStyles.titleBoldBackground,
                     ),
                   ],
@@ -49,6 +51,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: Colors.black,
+                  image: DecorationImage(
+                    image: NetworkImage(widget.user.avatar!),
+                  ),
                 ),
               ),
             ),

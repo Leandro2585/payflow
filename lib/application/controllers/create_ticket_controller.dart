@@ -9,7 +9,7 @@ class CreateTicketController {
   Future<void> registerTicket() async {
     final form = formKey.currentState;
     if (form!.validate()) {
-      return saveTicket();
+      return await saveTicket();
     }
   }
 

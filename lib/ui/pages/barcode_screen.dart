@@ -19,7 +19,11 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
     readBarcodeController.getAvailableCameras();
     readBarcodeController.statusNotifier.addListener(() {
       if (readBarcodeController.status.hasBarcode) {
-        Navigator.pushReplacementNamed(context, '/create_ticket');
+        Navigator.pushReplacementNamed(
+          context,
+          '/create_ticket',
+          arguments: readBarcodeController.status.barcode,
+        );
       }
     });
     super.initState();

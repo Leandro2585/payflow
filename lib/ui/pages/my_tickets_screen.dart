@@ -1,3 +1,4 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:payflow/application/controllers/index.dart';
 import 'package:payflow/data/models/index.dart';
@@ -17,8 +18,7 @@ class _MyTicketsScreenState extends State<MyTicketsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24),
+    return SingleChildScrollView(
       child: Column(
         children: [
           Stack(
@@ -26,13 +26,16 @@ class _MyTicketsScreenState extends State<MyTicketsScreen> {
               Container(
                 color: AppColors.primary,
                 height: 40,
+                width: double.maxFinite,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: ValueListenableBuilder<List<TicketModel>>(
                   valueListenable: ticketListController.ticketsNotifier,
-                  builder: (_, tickets, __) =>
-                      TicketInfoWidget(size: tickets.length),
+                  builder: (_, tickets, __) => AnimatedCard(
+                    direction: AnimatedCardDirection.top,
+                    child: TicketInfoWidget(size: tickets.length),
+                  ),
                 ),
               ),
             ],
