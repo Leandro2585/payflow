@@ -110,7 +110,10 @@ class _CreateTicketScreenState extends State<CreateTicketScreen> {
           Navigator.pop(context);
         },
         secondaryLabel: 'Cadastrar',
-        secondaryHandle: controller.registerTicket,
+        secondaryHandle: () async {
+          await controller.registerTicket();
+          Navigator.pop(context);
+        },
         enableSecondaryColor: true,
       ),
     );

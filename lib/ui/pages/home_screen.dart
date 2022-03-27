@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/application/controllers/index.dart';
+import 'package:payflow/data/models/index.dart';
 import 'package:payflow/ui/styles/index.dart';
+import 'package:payflow/ui/widgets/index.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,6 +12,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final homeController = HomeController();
+  final pages = [
+    Container(color: Colors.red, child: TicketTileWidget(data: TicketModel())),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,12 +55,21 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
+      body: pages[homeController.currentPage],
       bottomNavigationBar: SizedBox(
         height: 90,
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.home, color: AppColors.primary),
+            onPressed: () {
+              homeController.setPage(0);
+              setState(() {});
+            },
+            icon: Icon(
+              Icons.home,
+              color: homeController.currentPage == 0
+                  ? AppColors.primary
+                  : AppColors.body,
+            ),
           ),
           GestureDetector(
             onTap: () async {
@@ -73,10 +90,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           IconButton(
-            onPressed: () {},
-            icon: const Icon(
+            onPressed: () {
+              homeController.setPage(1);
+              setState(() {});
+            },
+            icon: Icon(
               Icons.description_outlined,
-              color: AppColors.body,
+              color: homeController.currentPage == 1
+                  ? AppColors.primary
+                  : AppColors.body,
             ),
           ),
         ]),

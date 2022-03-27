@@ -26,32 +26,21 @@ class TicketModel {
     );
   }
 
-  TicketModel merge(TicketModel model) {
-    return TicketModel(
-      description: model.description ?? description,
-      dueDate: model.dueDate ?? dueDate,
-      value: model.value ?? value,
-      barcode: model.barcode ?? barcode,
-    );
-  }
-
   Map<String, dynamic> toMap() {
     return {
-      'description': description?.toMap(),
-      'dueDate': dueDate?.toMap(),
-      'value': value?.toMap(),
-      'barcode': barcode?.toMap(),
+      'description': description,
+      'dueDate': dueDate,
+      'value': value,
+      'barcode': barcode,
     };
   }
 
   factory TicketModel.fromMap(Map<String, dynamic> map) {
-    if (map == null) return null;
-
     return TicketModel(
-      description: String?.fromMap(map['description']),
-      dueDate: String?.fromMap(map['dueDate']),
-      value: double?.fromMap(map['value']),
-      barcode: String?.fromMap(map['barcode']),
+      description: map['name'],
+      dueDate: map['dueDate'],
+      value: map['value'],
+      barcode: map['barcode'],
     );
   }
 
@@ -66,14 +55,14 @@ class TicketModel {
   }
 
   @override
-  bool operator ==(Object o) {
-    if (identical(this, o)) return true;
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
 
-    return o is TicketModel &&
-        o.description == description &&
-        o.dueDate == dueDate &&
-        o.value == value &&
-        o.barcode == barcode;
+    return other is TicketModel &&
+        other.description == description &&
+        other.dueDate == dueDate &&
+        other.value == value &&
+        other.barcode == barcode;
   }
 
   @override
